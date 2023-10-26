@@ -4,7 +4,7 @@ if status is-interactive
     command cat ~/.cache/wal/sequences &
     
     todo.sh list &
-    export OPENAI_KEY="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" &
+    source ~/.config/openaikey.fish
     
     bind --mode insert --sets-mode default jj repaint
     # Vars
