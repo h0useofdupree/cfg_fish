@@ -1,14 +1,16 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    bass "(cat ~/.cache/wal/sequences &)"
-
-    colorscript -r
+    # NOTE: Escape the fish function 'cat' which is used as a wrapper for 'bat'
+    command cat ~/.cache/wal/sequences &
     
-    abbr -a nv nvim
-    abbr -a func "funced -e nvim -s"
-    abbr -a t 'todo.sh'
-    abbr -a cdh 'cd ~/.config/hypr/'
-
+    todo.sh list &
+    export OPENAI_KEY="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" &
+    
+    bind --mode insert --sets-mode default jj repaint
+    # Vars
+    set -gx GOPATH $HOME/go
+    set -gx PATH $GOPATH/bin $PATH
 
     set -U CONNECTED_MONITORS (wlr-randr | grep -c "Enabled")
+
 end

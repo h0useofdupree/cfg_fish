@@ -1,5 +1,5 @@
 function slock --description 'swaylock wrapper'
-  swaylock \
+  swaylock -f \
          --screenshots \
          --clock \
          --indicator \

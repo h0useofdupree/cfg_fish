@@ -1,4 +1,6 @@
 function restartWaybar
-  killall waybar
-  waybar 2&>/dev/null
+  if pidof &>/dev/null waybar
+    killall waybar
+  end
+  nohup waybar &>/dev/null &
 end

@@ -1,0 +1,33 @@
+# --- Helper functions for conditions ---
+
+function __fish_pwr_needs_option
+    set -l cmd (commandline -opc)
+    if [ (count $cmd) -eq 1 ]
+        return 0
+    end
+    return 1
+end
+
+function __fish_pwr_using_backend_subcommand
+    set -l cmd (commandline -opc)
+    if test (count $cmd) -gt 1; and test "$cmd[2]" = "backend"
+        return 0
+    end
+    return 1
+end
+
+# --- pwr main command and options ---
+
+complete -c pwr -n '__fish_pwr_needs_option' -s h -l help -d "ⓘ Help" -f
+complete -c pwr -n '__fish_pwr_needs_option' -s a -l alpha -d "🔢 Alpha Level" -f
+complete -c pwr -s w -l wallpaper -d "🖼 Wallpaper Path" -F
+complete -c pwr -n '__fish_pwr_needs_option' -a "backend" -d "🎨 Choose Backend" -f
+
+# --- Backend-specific completions ---
+
+complete -c pwr -n '__fish_pwr_using_backend_subcommand' -a "wal" -d "🌀 wal" -f
+complete -c pwr -n '__fish_pwr_using_backend_subcommand' -a "colorz" -d "🌈 colorz" -f
+complete -c pwr -n '__fish_pwr_using_backend_subcommand' -a "colorthief" -d "🔍 colorthief" -f
+complete -c pwr -n '__fish_pwr_using_backend_subcommand' -a "haishoku" -d "🌸 haishoku" -f
+complete -c pwr -n '__fish_pwr_using_backend_subcommand' -a "schemer2" -d "🎨 schemer2" -f
+
