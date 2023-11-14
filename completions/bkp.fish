@@ -1,0 +1,16 @@
+# ~/.config/fish/completions/bkp.fish
+
+complete -c bkp -s h -l help -d 'Display this help message and exit'
+complete -c bkp -s m -l mode -f -d 'Set the rclone mode, default is sync' -a 'sync copy'
+complete -c bkp -l from -d 'Specify the source directory for backup'
+complete -c bkp -l to -f -d 'Specify the rclone destination' -a 'bkp-xps15:/bkp-xps15/'
+complete -c bkp -s t -l transfers -d 'Set the number of file transfers'
+complete -c bkp -s r -l retries -d 'Set the number of retries on failure'
+complete -c bkp -l drive-chunk-size -d 'Specify the drive chunk size'
+complete -c bkp -l fast-list -d 'Use fast list mode'
+complete -c bkp -l follow-symlinks -d 'Follow symlinks during backup'
+complete -c bkp -s p -l progress -d 'Show progress during transfer'
+complete -c bkp -l progress-terminal-title -d 'Set the terminal title to the progress'
+complete -c bkp -s e -l exclude-from -d 'Exclude files/folders listed in the specified file'
+complete -c bkp -l log -d 'Log output to the specified directory'
+complete -c bkp -s q -l quiet -d 'Completely suppress output to the command line'
