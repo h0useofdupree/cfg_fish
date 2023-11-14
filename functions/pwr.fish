@@ -1,9 +1,9 @@
 function pwr --description 'Random wallpaper setter with colors n stuff'
 
-  set -l scheme dark
   set -l backend haishoku
-  set -l background '000000'
+  # set -l background '000000'
   set -l WALL "$HOME/Pictures/walls/"(command ls -p ~/Pictures/walls/ | grep -v / | shuf -n1)
+  set -l SKIP_WAL false
 
  # Handle the 'backend' subcommand
   if contains "backend" $argv
@@ -15,7 +15,7 @@ function pwr --description 'Random wallpaper setter with colors n stuff'
     end
   end
 
-  argparse 'h/help' 'a/alpha=' 'b/background=' 'w/wallpaper=' 'l/light' -- $argv
+  argparse 'h/help' 's/skip_wal' 'a/alpha=' 'b/background=' 'w/wallpaper=' 'l/light' -- $argv
   or return
 
   # Evaluate flags
@@ -47,24 +47,27 @@ function pwr --description 'Random wallpaper setter with colors n stuff'
     set alpha $_flag_alpha
   end
 
+  if set -q _flag_s
+    set SKIP_WAL true
+  end
+
   if set -q _flag_wallpaper
     set WALL $_flag_wallpaper
   end
 
   if set -q _flag_light
-    set scheme "light"
+    set scheme "-l"
   end
 
-  if set -q _flag_background
-    set background $_flag_background
-  end
+  # if set -q _flag_background
+  #   set background $_flag_background
+  # end
 
-  if test $scheme = "light"
-    # Generate light palette
-    wal -ni $WALL --backend $backend -b $background --cols16 -l
-  else if test $scheme = "dark"
     # Generate Palette
-    wal -ni $WALL --backend $backend -b $background --cols16
+  if test $SKIP_WAL = 'true'
+    swww img $WALL
+  else  
+    wal -ni $WALL --backend $backend $background $scheme --cols16
   end
   
   # Wait for Hyprland to restart

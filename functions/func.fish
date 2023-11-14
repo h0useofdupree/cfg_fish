@@ -15,5 +15,5 @@ function func
     end
 
     # Open the function with the default editor
-    $EDITOR $function_path
+    nv $function_path
 end

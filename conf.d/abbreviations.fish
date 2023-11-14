@@ -1,4 +1,3 @@
-abbr -a -- nv nvim
 abbr -a -- py python3
 abbr -a -- t todo.sh
 abbr -a -- cdh 'cd ~/.config/hypr/'
@@ -22,3 +21,10 @@ abbr -a -- gs 'git status'
 abbr -a -- gd 'git diff'
 abbr -a -- g git
 abbr -a -- s sudo
+abbr -a -- gf 'git fetch'
+abbr -a -- sss 'sudo systemctl start'
+abbr -a -- gb 'git branch'
+abbr -a -- gch 'git checkout'
+abbr -a -- cdk 'cd /home/juuls/.config/kitty/'
+abbr -a -- ss 'sudo systemctl'
+abbr -a -- icat 'kitty +kitten icat'
