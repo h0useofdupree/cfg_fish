@@ -14,4 +14,14 @@ if status is-interactive
     set -gx PATH $GOPATH/bin $PATH
     set -gx OPENAI_KEY "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" &
     set -Ux CONNECTED_MONITORS (wlr-randr | grep -c "Enabled")
+    set -gx main_backup_dir_list \
+            ~/.config/ \
+            ~/Pictures \
+            ~/Documents \
+            ~/.scripts \
+            ~/sec \
+            ~/Projects
+
+    # Add subfolders from ./functions to $fish_function_path
+    set -p fish_function_path ~/.config/fish/functions/bkp
 end
