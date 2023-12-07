@@ -4,7 +4,7 @@ function idle_handler --description 'Wrapper for script that manages idle and au
         set -f time_speakers_off (math $time_suspend - 5)
         set -f time_dpms_off ( math $time_lock + 600)
         set -f time_suspend ( math $time_dpms_off + 600)
-        
+
         
         argparse -n idle_handler 'h/help' 'r/restart' 'debug' -- $argv
         or return
@@ -23,7 +23,7 @@ function idle_handler --description 'Wrapper for script that manages idle and au
                 if pidof swayidle &>/dev/null
                         killall swayidle
                 end
-                set -f time_lock 10
+                set -f time_lock 5
                 set -f time_speakers_off (math $time_lock - 3)
                 set -f time_dpms_off ( math $time_lock + 5)
                 set -f time_suspend ( math $time_dpms_off + 5)

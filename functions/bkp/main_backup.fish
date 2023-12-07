@@ -9,7 +9,8 @@ function main_backup --description 'Uses bkp function do backup directories in $
   #
   # if set -q _flag_quiet
   # end
-
+  
+  notify-send "Backup Main" "Starting main backup process"
   for dir in $main_backup_dir_list
     set -l last_char (string sub -s -1 $dir)
     if not test $last_char = '/'
@@ -44,9 +45,10 @@ function main_backup --description 'Uses bkp function do backup directories in $
           --progress-terminal-title \
           --log $log_path \
           --delete-excluded \
-          --dry \
           --force \
           --exclude-from $exclude_from
+          #TODO: Add option parsing
+          # --dry \
           # -q
     eval $rclone_cmd 
     if test $status -eq 130
@@ -54,4 +56,6 @@ function main_backup --description 'Uses bkp function do backup directories in $
     end
     # sleep 1
   end
+  echo "Made backup for: $main_backup_dir_list" > ~/.config/rclone/logs/main_backup_(date '+%Y-%m-%d-%H-%M').log
+  notify-send "Backup Main" "Finished backup"
 end

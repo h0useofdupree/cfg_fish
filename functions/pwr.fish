@@ -15,7 +15,7 @@ function pwr --description 'Random wallpaper setter with colors n stuff'
     end
   end
 
-  argparse 'h/help' 's/skip_wal' 'a/alpha=' 'b/background=' 'w/wallpaper=' 'l/light' -- $argv
+  argparse 'h/help' 't/theme=' 's/skip_wal' 'a/alpha=' 'b/background=' 'w/wallpaper=' 'l/light' -- $argv
   or return
 
   # Evaluate flags
@@ -59,6 +59,11 @@ function pwr --description 'Random wallpaper setter with colors n stuff'
     set scheme "-l"
   end
 
+  if set -q _flag_theme
+    set theme $_flag_theme
+    set WALL ~/Pictures/themes/$theme/(command ls -p ~/Pictures/themes/$theme/ | grep -v / | shuf -n1)
+  end
+
   # if set -q _flag_background
   #   set background $_flag_background
   # end
@@ -67,7 +72,7 @@ function pwr --description 'Random wallpaper setter with colors n stuff'
   if test $SKIP_WAL = 'true'
     swww img $WALL
   else  
-    wal -ni $WALL --backend $backend $background $scheme --cols16
+    wal -stni $WALL --backend $backend $background $scheme --cols16
   end
   
   # Wait for Hyprland to restart

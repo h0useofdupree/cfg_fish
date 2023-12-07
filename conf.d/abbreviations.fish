@@ -29,3 +29,5 @@ abbr -a -- cdk 'cd /home/juuls/.config/kitty/'
 abbr -a -- ss 'sudo systemctl'
 abbr -a -- icat 'kitty +kitten icat'
 abbr -a -- rmd 'rm -rd'
+abbr -a -- rs rsync
+abbr -a -- sus 'systemctl suspend'

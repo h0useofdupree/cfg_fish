@@ -12,7 +12,6 @@ if status is-interactive
     # Vars
     set -gx GOPATH $HOME/go
     set -gx PATH $GOPATH/bin $PATH
-    set -gx OPENAI_KEY "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" &
     set -Ux CONNECTED_MONITORS (wlr-randr | grep -c "Enabled")
     set -gx main_backup_dir_list \
             ~/.config/ \
@@ -21,6 +20,8 @@ if status is-interactive
             ~/.scripts \
             ~/sec \
             ~/Projects
+    set -gx theme catppuccin
+    set -gx theme_flavor mocha
 
     # Add subfolders from ./functions to $fish_function_path
     set -p fish_function_path ~/.config/fish/functions/bkp
