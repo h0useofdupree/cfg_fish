@@ -408,16 +408,11 @@ function bkp --description 'Backup using rclone'
   
   # User Confirmation
   if not set -q _flag_force
-    echo "Please confirm your configuration to start the backup progress (type 'Yes' to confirm)"
+    echo "Confirm your configuration to start the backup progress (type 'Yes' to confirm)"
     read -l user_confirm_exec
     switch $user_confirm_exec
       case 'Yes'
-        clear
-        echo 'Starting Backup in'
-        for i in (seq 3 -1 1)
-          echo $i
-          sleep 1
-        end
+        # Continue
       case '*'
         echo 'Backup cancelled by user'
         return
@@ -426,6 +421,7 @@ function bkp --description 'Backup using rclone'
   
   
   # Execution
+  clear
   if set -q _flag_quiet
     eval $rclone_cmd 2&>/dev/null
   else

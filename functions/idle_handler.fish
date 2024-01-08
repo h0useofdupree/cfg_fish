@@ -50,9 +50,9 @@ function idle_handler --description 'Wrapper for script that manages idle and au
 
         swayidle -w \
                 timeout $time_speakers_off $cmd_speakers_off \
-                timeout $time_lock 'fish -c slock' \
+                timeout $time_lock 'fish -c "slock"' \
                 timeout $time_dpms_off $cmd_dpms_off \
                         resume $cmd_dpms_on \
                 timeout $time_suspend $cmd_suspend \
-                before-sleep 'fish -c slock' &
+                before-sleep 'fish -c "slock"' &
 end

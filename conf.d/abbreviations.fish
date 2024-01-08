@@ -31,3 +31,5 @@ abbr -a -- icat 'kitty +kitten icat'
 abbr -a -- rmd 'rm -rd'
 abbr -a -- rs rsync
 abbr -a -- sus 'systemctl suspend'
+abbr -a -- cdd 'cd /home/juuls/Documents/'
+abbr -a -- vis 'sudo -E -s EDITOR=nvim visudo'

@@ -10,9 +10,15 @@ if status is-interactive
     bind --mode insert --sets-mode default jj repaint
     
     # Vars
+    set -gx EDITOR nvim
+    set -gx BROWSER qutebrowser
+    
     set -gx GOPATH $HOME/go
-    set -gx PATH $GOPATH/bin $PATH
+    set -gx EMACSBINPATH ~/.config/emacs/bin
+    set -gx PATH $GOPATH/bin $EMACSBINPATH ~/.cargo/bin/ $PATH
+    
     set -Ux CONNECTED_MONITORS (wlr-randr | grep -c "Enabled")
+    
     set -gx main_backup_dir_list \
             ~/.config/ \
             ~/Pictures \
@@ -20,8 +26,10 @@ if status is-interactive
             ~/.scripts \
             ~/sec \
             ~/Projects
+    
     set -gx theme catppuccin
     set -gx theme_flavor mocha
+    set -gx wallpaper_folder $HOME/Pictures/walls/forest/
 
     # Add subfolders from ./functions to $fish_function_path
     set -p fish_function_path ~/.config/fish/functions/bkp
