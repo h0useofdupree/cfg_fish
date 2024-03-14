@@ -33,3 +33,5 @@ abbr -a -- rs rsync
 abbr -a -- sus 'systemctl suspend'
 abbr -a -- cdd 'cd /home/juuls/Documents/'
 abbr -a -- vis 'sudo -E -s EDITOR=nvim visudo'
+abbr -a -- sc sc-im
+abbr -a -- f fish

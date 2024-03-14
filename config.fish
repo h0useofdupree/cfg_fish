@@ -6,8 +6,9 @@ if status is-interactive
     
     todo.sh list
     
+    :
     # Vi-Mode Easy Exit
-    bind --mode insert --sets-mode default jj repaint
+    # bind --mode insert --sets-mode default jj repaint
     
     # Vars
     set -gx EDITOR nvim
@@ -28,7 +29,7 @@ if status is-interactive
             ~/Projects
     
     set -gx theme catppuccin
-    set -gx theme_flavor mocha
+    set -gx theme_flavor frappe
     set -gx wallpaper_folder $HOME/Pictures/walls/forest/
 
     # Add subfolders from ./functions to $fish_function_path
